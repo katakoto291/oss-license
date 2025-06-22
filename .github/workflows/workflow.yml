@@ -1,0 +1,30 @@
+name: workflow.yml
+
+on:
+  push:
+    branches:
+      - main  # mainブランチにpushされたとき
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ソースコードをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Node.js をセットアップ
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: 'package.json'
+
+      - name: npm install
+        run: npm ci
+
+      - name: npm run build
+        run: npm run build
