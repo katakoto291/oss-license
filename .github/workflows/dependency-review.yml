@@ -35,6 +35,6 @@ jobs:
         with:
           comment-summary-in-pr: always
           allow-licenses: |
-            Apache-2.0
-            ISC
+            Apache-2.0,
+            ISC,
             MIT
